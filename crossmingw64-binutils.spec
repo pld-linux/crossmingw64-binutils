@@ -30,7 +30,7 @@ crossmingw64 is a complete cross-compiling development system for
 building stand-alone Microsoft Windows applications under Linux using
 the Mingw64 build libraries. This includes a binutils, gcc with g++
 and objc, and libstdc++, all cross targeted to x86_64-mingw64, along
-with supporting Win32 libraries in 'coff' format from free sources.
+with supporting Win64 libraries in 'coff' format from free sources.
 
 This package contains cross targeted binutils.
 
@@ -38,10 +38,10 @@ This package contains cross targeted binutils.
 crossmingw64 jest kompletnym systemem do kroskompilacji, pozwalaj±cym
 budowaæ aplikacje MS Windows pod Linuksem u¿ywaj±c bibliotek mingw64.
 System sk³ada siê z binutils, gcc z g++ i objc, libstdc++ - wszystkie
-generuj±ce kod dla platformyx86_64-mingw64, oraz z bibliotek w formacie
+generuj±ce kod dla platformy x86_64-mingw64, oraz z bibliotek w formacie
 COFF.
 
-Ten pakiet zawiera binutils generuj±ce skro¶nie binaria dla Win32.
+Ten pakiet zawiera binutils generuj±ce skro¶nie binaria dla Win64.
 
 %prep
 %setup -q -n binutils-%{version}
