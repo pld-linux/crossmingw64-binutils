@@ -1,9 +1,9 @@
 Summary:	Cross Mingw64 GNU binary utility development utilities - binutils
-Summary(es):	Utilitarios para desarrollo de binarios de la GNU - Mingw64 binutils
-Summary(fr):	Utilitaires de développement binaire de GNU - Mingw64 binutils
-Summary(pl):	Skro¶ne narzêdzia programistyczne GNU dla Mingw64 - binutils
-Summary(pt_BR):	Utilitários para desenvolvimento de binários da GNU - Mingw64 binutils
-Summary(tr):	GNU geliþtirme araçlarý - Mingw64 binutils
+Summary(es.UTF-8):   Utilitarios para desarrollo de binarios de la GNU - Mingw64 binutils
+Summary(fr.UTF-8):   Utilitaires de dÃ©veloppement binaire de GNU - Mingw64 binutils
+Summary(pl.UTF-8):   SkroÅ›ne narzÄ™dzia programistyczne GNU dla Mingw64 - binutils
+Summary(pt_BR.UTF-8):   UtilitÃ¡rios para desenvolvimento de binÃ¡rios da GNU - Mingw64 binutils
+Summary(tr.UTF-8):   GNU geliÅŸtirme araÃ§larÄ± - Mingw64 binutils
 Name:		crossmingw64-binutils
 Version:	2.17.50.0.9
 Release:	1
@@ -34,14 +34,14 @@ with supporting Win64 libraries in 'coff' format from free sources.
 
 This package contains cross targeted binutils.
 
-%description -l pl
-crossmingw64 jest kompletnym systemem do kroskompilacji, pozwalaj±cym
-budowaæ aplikacje MS Windows pod Linuksem u¿ywaj±c bibliotek mingw64.
-System sk³ada siê z binutils, gcc z g++ i objc, libstdc++ - wszystkie
-generuj±ce kod dla platformy x86_64-mingw64, oraz z bibliotek w formacie
+%description -l pl.UTF-8
+crossmingw64 jest kompletnym systemem do kroskompilacji, pozwalajÄ…cym
+budowaÄ‡ aplikacje MS Windows pod Linuksem uÅ¼ywajÄ…c bibliotek mingw64.
+System skÅ‚ada siÄ™ z binutils, gcc z g++ i objc, libstdc++ - wszystkie
+generujÄ…ce kod dla platformy x86_64-mingw64, oraz z bibliotek w formacie
 COFF.
 
-Ten pakiet zawiera binutils generuj±ce skro¶nie binaria dla Win64.
+Ten pakiet zawiera binutils generujÄ…ce skroÅ›nie binaria dla Win64.
 
 %prep
 %setup -q -n binutils-%{version}
