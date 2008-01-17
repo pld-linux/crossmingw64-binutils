@@ -5,13 +5,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla Mingw64 - binutil
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - Mingw64 binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - Mingw64 binutils
 Name:		crossmingw64-binutils
-Version:	2.17.50.0.14
+Version:	2.18.50.0.3
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
-# Source0-md5:	4ddab973ad9c5169d8f8296bdf67b3f7
-Patch0:		%{name}-configure.patch
+# Source0-md5:	4e0692b6ff63d51b7ae3529fabe290ce
 URL:		http://sources.redhat.com/binutils/
 BuildRequires:	automake
 BuildRequires:	bash
@@ -22,7 +21,7 @@ BuildRequires:	gettext-devel
 #BuildRequires:	texinfo >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		target		x86_64-mingw64
+%define		target		x86_64-mingw32
 %define		arch		%{_prefix}/%{target}
 
 %description
@@ -45,7 +44,6 @@ Ten pakiet zawiera binutils generujące skrośnie binaria dla Win64.
 
 %prep
 %setup -q -n binutils-%{version}
-%patch0 -p1
 
 %build
 # Because of a bug in binutils-2.9.1, a cross libbfd.so* is not named
