@@ -5,12 +5,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla Mingw64 - binutil
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - Mingw64 binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - Mingw64 binutils
 Name:		crossmingw64-binutils
-Version:	2.18.50.0.5
+Version:	2.18.50.0.6
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
-# Source0-md5:	daee18dbbf0a6ccfc186141bee18bf62
+# Source0-md5:	9e474d739355c15ba6ecf5fd9fae8608
 URL:		http://sources.redhat.com/binutils/
 BuildRequires:	automake
 BuildRequires:	bash
