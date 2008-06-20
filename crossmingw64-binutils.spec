@@ -5,12 +5,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla Mingw64 - binutil
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - Mingw64 binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - Mingw64 binutils
 Name:		crossmingw64-binutils
-Version:	2.18.50.0.6
+Version:	2.18.50.0.7
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
-# Source0-md5:	9e474d739355c15ba6ecf5fd9fae8608
+# Source0-md5:	d5bce238060d631be60a3f1f1009a7ba
 URL:		http://sources.redhat.com/binutils/
 BuildRequires:	automake
 BuildRequires:	bash
@@ -62,6 +62,7 @@ CONFIG_SHELL="/bin/bash" \
 	--libdir=%{_libdir} \
 	--mandir=%{_mandir} \
 	--infodir=%{_infodir} \
+	--with-sysroot=%{arch} \
 	--host=%{_target_platform} \
 	--build=%{_target_platform} \
 	--target=%{target}
@@ -81,10 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 
 # remove this man page unless we cross-build for netware platform.
 # however, this should be done in Makefiles.
-rm -f $RPM_BUILD_ROOT%{_mandir}/man1/*nlmconv.1
+rm $RPM_BUILD_ROOT%{_mandir}/man1/*nlmconv.1
 
 # libiberty.a is ELF not PE
-rm -f $RPM_BUILD_ROOT%{arch}/lib/libiberty.a
+rm $RPM_BUILD_ROOT%{_libdir}/libiberty.a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
