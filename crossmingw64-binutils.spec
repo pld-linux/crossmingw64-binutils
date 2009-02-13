@@ -7,7 +7,7 @@ Summary(tr.UTF-8):	GNU geliştirme araçları - Mingw64 binutils
 Name:		crossmingw64-binutils
 Version:	2.19.51.0.2
 Release:	1
-License:	GPL
+License:	GPL v3+
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
 # Source0-md5:	2b019d9f3c46a5bb775b42ab55f199cc
@@ -46,11 +46,6 @@ Ten pakiet zawiera binutils generujące skrośnie binaria dla Win64.
 %setup -q -n binutils-%{version}
 
 %build
-# Because of a bug in binutils-2.9.1, a cross libbfd.so* is not named
-# lib<target>bfd.so*. To prevent confusion with native binutils, we
-# forget about shared libraries right now, and do not install libbfd.a
-# [the same applies to binutils 2.10.1.0.4]
-
 # ldscripts won't be generated properly if SHELL is not bash...
 CFLAGS="%{rpmcflags}" \
 LDFLAGS="%{rpmldflags}" \
