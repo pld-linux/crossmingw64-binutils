@@ -6,17 +6,19 @@ Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - Mi
 Summary(tr.UTF-8):	GNU geliştirme araçları - Mingw64 binutils
 Name:		crossmingw64-binutils
 Version:	2.20.51.0.11
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
 # Source0-md5:	d2306466e669700abbb3d1a64b10d5d2
+Patch0:		%{name}-zlib.patch
 URL:		http://sources.redhat.com/binutils/
 BuildRequires:	automake
 BuildRequires:	bash
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
+BuildRequires:	zlib-devel
 # not necessary unless we patch .texi docs; but they are not packaged here anyway
 #BuildRequires:	texinfo >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -44,6 +46,7 @@ Ten pakiet zawiera binutils generujące skrośnie binaria dla Win64.
 
 %prep
 %setup -q -n binutils-%{version}
+%patch0 -p1
 
 %build
 # ldscripts won't be generated properly if SHELL is not bash...
