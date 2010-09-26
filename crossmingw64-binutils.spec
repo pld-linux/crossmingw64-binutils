@@ -6,7 +6,7 @@ Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - Mi
 Summary(tr.UTF-8):	GNU geliştirme araçları - Mingw64 binutils
 Name:		crossmingw64-binutils
 Version:	2.20.51.0.11
-Release:	2
+Release:	3
 License:	GPL v3+
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
@@ -23,7 +23,7 @@ BuildRequires:	zlib-devel
 #BuildRequires:	texinfo >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		target		x86_64-mingw32
+%define		target		x86_64-pc-mingw32
 %define		arch		%{_prefix}/%{target}
 
 %description
@@ -58,6 +58,7 @@ CONFIG_SHELL="/bin/bash" \
 	--disable-nls \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
+	--libexecdir=%{_libdir} \
 	--mandir=%{_mandir} \
 	--infodir=%{_infodir} \
 	--with-sysroot=%{arch} \
@@ -65,18 +66,13 @@ CONFIG_SHELL="/bin/bash" \
 	--build=%{_target_platform} \
 	--target=%{target}
 
-%{__make} all \
-	tooldir=%{_prefix}
+%{__make} all
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	INSTALL='$$s/install-sh -c' \
-	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	mandir=$RPM_BUILD_ROOT%{_mandir} \
-	infodir=$RPM_BUILD_ROOT%{_infodir} \
-	libdir=$RPM_BUILD_ROOT%{_libdir}
+	DESTDIR=$RPM_BUILD_ROOT
 
 # remove this man page unless we cross-build for netware platform.
 # however, this should be done in Makefiles.
