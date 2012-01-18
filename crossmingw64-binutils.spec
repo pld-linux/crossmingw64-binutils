@@ -5,12 +5,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla Mingw64 - binutil
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - Mingw64 binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - Mingw64 binutils
 Name:		crossmingw64-binutils
-Version:	2.21.51.0.9
+Version:	2.22.51.0.1
 Release:	1
 License:	GPL v3+
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
-# Source0-md5:	2ac3a7dae9f177f2b29f4ef1852c27a8
+# Source0-md5:	f1141fa48e6431525cd4d8be814bef89
 URL:		http://sources.redhat.com/binutils/
 BuildRequires:	automake
 BuildRequires:	bash
@@ -22,7 +22,7 @@ BuildRequires:	zlib-devel
 #BuildRequires:	texinfo >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		target		x86_64-pc-mingw32
+%define		target		x86_64-w64-mingw32
 %define		arch		%{_prefix}/%{target}
 
 %description
