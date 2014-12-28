@@ -16,7 +16,7 @@ BuildRequires:	automake
 BuildRequires:	bash
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	zlib-devel
 # not necessary unless we patch .texi docs; but they are not packaged here anyway
 #BuildRequires:	texinfo >= 4.2
