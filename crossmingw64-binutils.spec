@@ -1,12 +1,12 @@
-Summary:	Cross MinGW64 GNU binary utility development utilities - binutils
-Summary(es.UTF-8):	Utilitarios para desarrollo de binarios de la GNU - MinGW64 binutils
-Summary(fr.UTF-8):	Utilitaires de développement binaire de GNU - MinGW64 binutils
-Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla MinGW64 - binutils
-Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - MinGW64 binutils
-Summary(tr.UTF-8):	GNU geliştirme araçları - Mingw64 binutils
+Summary:	Cross MinGW-W64 GNU binary utility development utilities - binutils
+Summary(es.UTF-8):	Utilitarios para desarrollo de binarios de la GNU - MinGW-W64 binutils
+Summary(fr.UTF-8):	Utilitaires de développement binaire de GNU - MinGW-W64 binutils
+Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla MinGW-W64 - binutils
+Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - MinGW-W64 binutils
+Summary(tr.UTF-8):	GNU geliştirme araçları - MinGW-W64 binutils
 Name:		crossmingw64-binutils
 Version:	2.27
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Development/Tools
 Source0:	http://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.bz2
@@ -25,7 +25,9 @@ BuildRequires:	perl-tools-pod
 #BuildRequires:	texinfo >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		target		x86_64-w64-mingw64
+# mingw-w64 project uses x86_64-w64-mingw32 triplet for 64-bit Windows
+# and (i?86-w64-mingw32 for 32-bit Windows)
+%define		target		x86_64-w64-mingw32
 %define		arch		%{_prefix}/%{target}
 
 %description
@@ -42,10 +44,11 @@ This package contains cross targeted binutils.
 crossmingw64 jest kompletnym systemem do kroskompilacji, pozwalającym
 budować aplikacje MS Windows pod Linuksem używając bibliotek mingw64.
 System składa się z binutils, gcc z g++ i objc, libstdc++ - wszystkie
-generujące kod dla platformy x86_64-w64-mingw32, oraz z bibliotek w
-formacie COFF.
+generujące kod dla platformy x86_64-w64-mingw32, oraz z bibliotek
+Win64 w formacie COFF.
 
-Ten pakiet zawiera binutils generujące skrośnie binaria dla Win64.
+Ten pakiet zawiera binutils generujące skrośnie binaria dla
+64-bitowych Windows.
 
 %prep
 %setup -q -n binutils-%{version}
