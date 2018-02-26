@@ -5,12 +5,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla MinGW-W64 - binut
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - MinGW-W64 binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - MinGW-W64 binutils
 Name:		crossmingw64-binutils
-Version:	2.28
+Version:	2.30
 Release:	1
 License:	GPL v3+
 Group:		Development/Tools
-Source0:	http://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.bz2
-# Source0-md5:	9e8340c96626b469a603c15c9d843727
+Source0:	http://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.lz
+# Source0-md5:	e64eb5655c6c2caa78677e19c84ba5b5
 Patch0:		binutils-libdir.patch
 Patch1:		binutils-am.patch
 URL:		http://sources.redhat.com/binutils/
@@ -20,7 +20,9 @@ BuildRequires:	bash
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-tools
+BuildRequires:	lzip
 BuildRequires:	perl-tools-pod
+BuildRequires:	tar >= 1:1.22
 # not necessary unless we patch .texi docs; but they are not packaged here anyway
 #BuildRequires:	texinfo >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
