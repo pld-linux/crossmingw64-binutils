@@ -5,12 +5,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla MinGW-W64 - binut
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - MinGW-W64 binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - MinGW-W64 binutils
 Name:		crossmingw64-binutils
-Version:	2.36.1
+Version:	2.37
 Release:	1
 License:	GPL v3+
 Group:		Development/Tools
 Source0:	https://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.lz
-# Source0-md5:	c5b19413fba1faa491ae884ce7f3129f
+# Source0-md5:	a030c64f442d224aa3baa04a11f8cf34
 URL:		http://www.sourceware.org/binutils/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.11
@@ -53,7 +53,7 @@ Ten pakiet zawiera binutils generujące skrośnie binaria dla
 %prep
 %setup -q -n binutils-%{version}
 
-# file contains hacks for ac 2.64 only
+# file contains hacks for ac 2.69 only
 %{__rm} config/override.m4
 %{__sed} -i '/^m4_include(config\/override\.m4/d' configure.ac
 
@@ -103,6 +103,8 @@ rm -rf $RPM_BUILD_ROOT
 	mandir=$RPM_BUILD_ROOT%{_mandir} \
 	infodir=$RPM_BUILD_ROOT%{_infodir} \
 	libdir=$RPM_BUILD_ROOT%{_libdir}
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/bfd-plugins/*.a
 
 # not prefixed, keep infos only from native packages
 %{__rm} -r $RPM_BUILD_ROOT%{_infodir}
