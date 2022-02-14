@@ -5,12 +5,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla MinGW-W64 - binut
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - MinGW-W64 binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - MinGW-W64 binutils
 Name:		crossmingw64-binutils
-Version:	2.37
+Version:	2.38
 Release:	1
 License:	GPL v3+
 Group:		Development/Tools
 Source0:	https://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.lz
-# Source0-md5:	a030c64f442d224aa3baa04a11f8cf34
+# Source0-md5:	a54dd3cba0f276a52063b7de151e6334
 URL:		http://www.sourceware.org/binutils/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.11
@@ -68,7 +68,7 @@ for dir in gas bfd; do
 	cd $dir || exit 1
 	%{__aclocal} -I .. -I ../config -I ../bfd
 	%{__automake} Makefile
-	%{__automake} doc/Makefile
+	test -f doc/Makefile.am && %{__automake} doc/Makefile
 	%{__autoconf}
 	cd ..
 done
@@ -83,6 +83,7 @@ CONFIG_SHELL="/bin/bash" \
 ./configure \
 	--disable-nls \
 	--disable-shared \
+	--disable-silent-rules \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
 	--mandir=%{_mandir} \
