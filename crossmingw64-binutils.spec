@@ -5,12 +5,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla MinGW-W64 - binut
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - MinGW-W64 binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - MinGW-W64 binutils
 Name:		crossmingw64-binutils
-Version:	2.43.1
+Version:	2.44
 Release:	1
 License:	GPL v3+
 Group:		Development/Tools
-Source0:	https://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.lz
-# Source0-md5:	02e842be7201e2a2d997c85d61b20d1b
+Source0:	https://ftp.gnu.org/gnu/binutils/binutils-with-gold-%{version}.tar.lz
+# Source0-md5:	cd67415c0ebc4ab158ad1c6961e1dc55
 URL:		http://www.sourceware.org/binutils/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.11
@@ -25,7 +25,9 @@ BuildRequires:	perl-tools-pod
 BuildRequires:	tar >= 1:1.22
 # not necessary unless we patch .texi docs; but they are not packaged here anyway
 #BuildRequires:	texinfo >= 6.3
-BuildRequires:	zstd-devel
+BuildRequires:	xxHash-devel
+BuildRequires:	zstd-devel >= 1.4.0
+Requires:	zstd >= 1.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # mingw-w64 project uses x86_64-w64-mingw32 triplet for 64-bit Windows
@@ -54,7 +56,7 @@ Ten pakiet zawiera binutils generujące skrośnie binaria dla
 64-bitowych Windows.
 
 %prep
-%setup -q -n binutils-%{version}
+%setup -q -n binutils-with-gold-%{version}
 
 # file contains hacks for ac 2.69 only
 %{__rm} config/override.m4
