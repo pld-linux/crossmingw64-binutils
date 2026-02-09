@@ -5,12 +5,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla MinGW-W64 - binut
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - MinGW-W64 binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - MinGW-W64 binutils
 Name:		crossmingw64-binutils
-Version:	2.44
+Version:	2.46
 Release:	1
 License:	GPL v3+
 Group:		Development/Tools
 Source0:	https://ftp.gnu.org/gnu/binutils/binutils-with-gold-%{version}.tar.lz
-# Source0-md5:	cd67415c0ebc4ab158ad1c6961e1dc55
+# Source0-md5:	e221b6201b7234e3e7733e878ff476c4
 URL:		http://www.sourceware.org/binutils/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.11
@@ -26,6 +26,7 @@ BuildRequires:	tar >= 1:1.22
 # not necessary unless we patch .texi docs; but they are not packaged here anyway
 #BuildRequires:	texinfo >= 6.3
 BuildRequires:	xxHash-devel
+BuildRequires:	zlib-devel
 BuildRequires:	zstd-devel >= 1.4.0
 Requires:	zstd >= 1.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -141,6 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{arch}/bin/ranlib
 %attr(755,root,root) %{arch}/bin/readelf
 %attr(755,root,root) %{arch}/bin/strip
+%attr(755,root,root) %{arch}/bin/windres
 %{arch}/lib/ldscripts
 %attr(755,root,root) %{_bindir}/%{target}-addr2line
 %attr(755,root,root) %{_bindir}/%{target}-ar
